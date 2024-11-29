@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+
+import argparse
+from change_colours import generate_image
+
+parser = argparse.ArgumentParser(description="GruvBoxify, create gruvbox version of any image.")
+
+parser.add_argument("input_file", help="Path to the input file")
+parser.add_argument("-o", "--output", help="Path to save the output image", default="output.jpg")
+parser.add_argument("-b", "--blend", type=float, help="Blend ratio (from 0.0 to 1.0)", default=0.3)
+
+if __name__ == "__main__":
+    args = parser.parse_args()
+    print(f"Generating gruvbox version of {args.input_file}...")
+    generate_image(args.input_file, args.output, args.blend)
+    print(f"Image saved to {args.output}")
